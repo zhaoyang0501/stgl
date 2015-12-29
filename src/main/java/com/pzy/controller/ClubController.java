@@ -18,7 +18,7 @@ import com.pzy.entity.Club;
 import com.pzy.service.ClubService;
 /***
  * @author panchaoyang
- *
+ *qq:263608237
  */
 @Controller
 @RequestMapping("/admin/club")

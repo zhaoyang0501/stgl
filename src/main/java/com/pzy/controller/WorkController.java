@@ -26,7 +26,7 @@ import com.pzy.service.WorkService;
 import com.pzy.service.WorkService;
 /***
  * @author panchaoyang
- *
+ * *qq 263608237
  */
 @Controller
 @RequestMapping("/admin/work")

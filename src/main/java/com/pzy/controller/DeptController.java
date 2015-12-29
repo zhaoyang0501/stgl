@@ -19,7 +19,7 @@ import com.pzy.service.ClubService;
 import com.pzy.service.DeptService;
 /***
  * @author panchaoyang
- *
+ *qq:263608237
  */
 @Controller
 @RequestMapping("/admin/dept")

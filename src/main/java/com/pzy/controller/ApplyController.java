@@ -25,7 +25,7 @@ import com.pzy.service.ApplyService;
 import com.pzy.service.ClubService;
 /***
  * @author panchaoyang
- *
+ *qq:263608237
  */
 @Controller
 @RequestMapping("/admin/apply")

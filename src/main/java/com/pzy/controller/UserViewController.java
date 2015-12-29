@@ -17,7 +17,7 @@ import com.pzy.entity.User;
 import com.pzy.service.UserService;
 /***
  * @author panchaoyang
- *
+ * qq:263608237
  */
 @Controller
 @RequestMapping("/admin/userview")

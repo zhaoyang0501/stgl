@@ -7,13 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.pzy.entity.Teacher;
 import com.pzy.entity.User;
-import com.pzy.service.TeacherService;
 import com.pzy.service.UserService;
 /***
  * 后台首页，处理后台登录验证权限等操作
- * @author Administrator
+ * @author qq:263608237
  *
  */
 @Controller
@@ -22,8 +20,6 @@ public class IndexController {
 	
 	@Autowired
 	private UserService userService;
-	@Autowired
-	private TeacherService tercherService;
 	@RequestMapping("index")
 	public String index() {
 		return "admin/login";
