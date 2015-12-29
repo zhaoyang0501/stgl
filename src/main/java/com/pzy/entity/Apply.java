@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 @Table(name = "t_apply")
 public class Apply {
@@ -16,6 +18,7 @@ public class Apply {
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
 	private Date applyDate;
 	private Double cash;
 	private String stel;
@@ -25,6 +28,13 @@ public class Apply {
 	private String remark2;
 	private String remark3;
 	private String remark4;
+	private String state;
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
 	private Date createDate;
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Club club;

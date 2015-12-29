@@ -1,8 +1,8 @@
-jQuery.adminUserview = {
-		userDataTable:null,
+jQuery.adminClub = {
+		clubDataTable:null,
 		initSearchDataTable : function() {
-			if (this.userDataTable == null) {
-				this.userDataTable = $('#dt_table_view').dataTable({
+			if (this.clubDataTable == null) {
+				this.clubDataTable = $('#dt_table_view').dataTable({
 					"sDom" : "<'row-fluid'<'span6'l>r>t<'row-fluid'<'span6'i><'span6'p>>",
 					"sPaginationType" : "bootstrap",
 					"oLanguage" : {
@@ -26,7 +26,7 @@ jQuery.adminUserview = {
 					"sServerMethod" : "POST",
 					"bProcessing" : true,
 					"bSort" : false,
-					"sAjaxSource" : $.ace.getContextPath() + "/admin/user/list",
+					"sAjaxSource" : $.ace.getContextPath() + "/admin/club/list",
 					"fnDrawCallback" : function(oSettings) {
 						$('[rel="popover"],[data-rel="popover"]').popover();
 					},
@@ -34,7 +34,7 @@ jQuery.adminUserview = {
 						var name = $("#_name").val();
 						if (!!name) {
 							aoData.push({
-								"name" : "username",
+								"name" : "clubname",
 								"value" : name
 							});
 						}
@@ -49,27 +49,19 @@ jQuery.adminUserview = {
 						});
 					},
 					"aoColumns" : [ {
-						"mDataProp" : "id"
-					}, {
-						"mDataProp" : "username"
-					}, {
-						"mDataProp" : "password"
-					}, {
 						"mDataProp" : "name"
 					}, {
-						"mDataProp" : "address"
+						"mDataProp" : "type"
 					}, {
-						"mDataProp" : "tel"
+						"mDataProp" : "sname"
 					}, {
-						"mDataProp" : "email"
-					},{
-						"mDataProp" : "school"
-					},{
-						"mDataProp" : "grade"
-					},{
-						"mDataProp" : "club.name"
-					},{
-						"mDataProp" : "job"
+						"mDataProp" : "stel"
+					}, {
+						"mDataProp" : "tname"
+					}, {
+						"mDataProp" : "ttel"
+					}, {
+						"mDataProp" : "remark1"
 					}, {
 						"mDataProp" : "createDate"
 					}],
@@ -82,9 +74,9 @@ jQuery.adminUserview = {
 
 				});
 			} else {
-				var oSettings = this.userDataTable.fnSettings();
+				var oSettings = this.clubDataTable.fnSettings();
 				oSettings._iDisplayStart = 0;
-				this.userDataTable.fnDraw(oSettings);
+				this.clubDataTable.fnDraw(oSettings);
 			}
 
 		}

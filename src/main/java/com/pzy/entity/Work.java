@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 @Table(name = "t_work")
 public class Work {
@@ -16,6 +18,7 @@ public class Work {
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
 	private Date workDate;
 	private String addr;
 	private String creater;

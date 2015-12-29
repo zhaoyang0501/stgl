@@ -68,6 +68,7 @@ public class ApplyController {
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(Apply apply,Model model) {
 		apply.setCreateDate(new Date());
+		apply.setState("未审批");
 		applyService.save(apply);
 		model.addAttribute("tip", "登记成功");
 		return "admin/apply/create";
@@ -81,17 +82,24 @@ public class ApplyController {
 		map.put("msg", "保存成功");
 		return map;
 	}
+	/***
+	 * 审批通过
+	 * @param id
+	 * @return
+	 */
 	@RequestMapping(value = "/delete/{id}")
 	@ResponseBody
 	public Map<String, Object> delete(@PathVariable Long id) {
+		Apply apply=applyService.find(id);
+		apply.setState("审批通过");
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {
-			applyService.delete(id);
+			applyService.save(apply);
 			map.put("state", "success");
-			map.put("msg", "删除成功");
+			map.put("msg", "审批成功");
 		} catch (Exception e) {
 			map.put("state", "error");
-			map.put("msg", "删除失败，外键约束");
+			map.put("msg", "审核失败，外键约束");
 		}
         return map;
 	}

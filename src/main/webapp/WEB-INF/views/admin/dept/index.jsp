@@ -4,7 +4,7 @@
 <html lang="ch">
 <%@ include file="../common/meta.jsp"%>
 <head>
-<script type="text/javascript" src="${pageContext.request.contextPath}/admin/js/ace/admin.userview.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/admin/js/ace/admin.dept.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/admin/js/falgun/bootbox.js"></script>
 <script src="${pageContext.request.contextPath}/admin/js/falgun/bootstrap-datetimepicker.min.js"></script>
 <script src="${pageContext.request.contextPath}/admin/js/falgun/bootstrap-datetimepicker.zh-CN.js"></script>
@@ -39,12 +39,12 @@
 					<div class="span12">
 						<div class="content-widgets light-gray">
 							<div class="widget-head  bondi-blue" >
-								<h3>会员查看</h3>
+								<h3>社团部门查询</h3>
 							</div>
 							<div class="box well form-inline">
-								<span>会员名称：</span>
+								<span>部门名称：</span>
 								<input type="text" id="_name" >
-								<a onclick="$.adminUserview.initSearchDataTable()"
+								<a onclick="$.adminDept.initSearchDataTable()"
 									class="btn btn-info" data-loading-text="正在加载..."><i class="icon-search"></i>查询</a>
 							</div>
 							<div class="widget-container">
@@ -52,18 +52,14 @@
 									id="dt_table_view">
 									<thead>
 										<tr>
-											<th >ID</th>
-											<th >用户名</th>
-											<th >密码</th>
-											<th >姓名</th>
-											<th >地址</th>
-											<th >电话</th>
-											<th >邮件</th>
-											<th >学校</th>
-											<th >班级</th>
 											<th >所属社团</th>
-											<th >职务</th>
-											<th >加入日期</th>
+											<th >部门名称</th>
+											<th >负责人姓名</th>
+											<th >负责人电话</th>
+											<th >负责人班级</th>
+											<th >负责人QQ</th>
+											<th >部门宗旨</th>
+											<th >登记日期</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -130,16 +126,9 @@
 								</div>
 							</div>
 							<div class="control-group">
-								<label for="title" class="control-label">学校：</label>
+								<label for="title" class="control-label">职称：</label>
 								<div class="controls">
-									<input type="text" name='school' id=school placeholder="">
-								</div>
-							</div>
-							
-							<div class="control-group">
-								<label for="title" class="control-label">班级：</label>
-								<div class="controls">
-									<input type="text" name='grade' id=grade placeholder="">
+									<input type="text" name='job' id=job placeholder="">
 								</div>
 							</div>
 						</form>
@@ -149,7 +138,7 @@
 		</div>
 		
 		<div class="modal-footer center" id="div_footer">
-			<a class="btn btn-primary" onclick="$.adminUser.saveUser()">保存</a>
+			<a class="btn btn-primary" onclick="$.adminDept.saveDept()">保存</a>
 			<a href="#" class="btn" data-dismiss="modal" id="closeViewModal">关闭</a>
 		</div>
 	</div>

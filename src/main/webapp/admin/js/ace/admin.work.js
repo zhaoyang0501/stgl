@@ -1,8 +1,8 @@
-jQuery.adminUserview = {
-		userDataTable:null,
+jQuery.adminWork = {
+		workDataTable:null,
 		initSearchDataTable : function() {
-			if (this.userDataTable == null) {
-				this.userDataTable = $('#dt_table_view').dataTable({
+			if (this.workDataTable == null) {
+				this.workDataTable = $('#dt_table_view').dataTable({
 					"sDom" : "<'row-fluid'<'span6'l>r>t<'row-fluid'<'span6'i><'span6'p>>",
 					"sPaginationType" : "bootstrap",
 					"oLanguage" : {
@@ -26,7 +26,7 @@ jQuery.adminUserview = {
 					"sServerMethod" : "POST",
 					"bProcessing" : true,
 					"bSort" : false,
-					"sAjaxSource" : $.ace.getContextPath() + "/admin/user/list",
+					"sAjaxSource" : $.ace.getContextPath() + "/admin/work/list",
 					"fnDrawCallback" : function(oSettings) {
 						$('[rel="popover"],[data-rel="popover"]').popover();
 					},
@@ -34,7 +34,7 @@ jQuery.adminUserview = {
 						var name = $("#_name").val();
 						if (!!name) {
 							aoData.push({
-								"name" : "username",
+								"name" : "workname",
 								"value" : name
 							});
 						}
@@ -49,29 +49,19 @@ jQuery.adminUserview = {
 						});
 					},
 					"aoColumns" : [ {
-						"mDataProp" : "id"
+						"mDataProp" : "club.name"
 					}, {
-						"mDataProp" : "username"
-					}, {
-						"mDataProp" : "password"
+						"mDataProp" : "createDate"
 					}, {
 						"mDataProp" : "name"
 					}, {
-						"mDataProp" : "address"
+						"mDataProp" : "creater"
 					}, {
-						"mDataProp" : "tel"
+						"mDataProp" : "who"
 					}, {
-						"mDataProp" : "email"
-					},{
-						"mDataProp" : "school"
-					},{
-						"mDataProp" : "grade"
-					},{
-						"mDataProp" : "club.name"
-					},{
-						"mDataProp" : "job"
+						"mDataProp" : "num"
 					}, {
-						"mDataProp" : "createDate"
+						"mDataProp" : "addr"
 					}],
 					"aoColumnDefs" : [
 					 {
@@ -82,9 +72,9 @@ jQuery.adminUserview = {
 
 				});
 			} else {
-				var oSettings = this.userDataTable.fnSettings();
+				var oSettings = this.workDataTable.fnSettings();
 				oSettings._iDisplayStart = 0;
-				this.userDataTable.fnDraw(oSettings);
+				this.workDataTable.fnDraw(oSettings);
 			}
 
 		}

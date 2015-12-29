@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 @Table(name = "t_club")
 public class Club {
@@ -29,6 +31,7 @@ public class Club {
 	private String remark2;
 	private String remark3;
 	private String remark4;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
 	private Date createDate;
 	public Date getCreateDate() {
 		return createDate;

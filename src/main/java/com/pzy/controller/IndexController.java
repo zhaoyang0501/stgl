@@ -40,7 +40,7 @@ public class IndexController {
 	@RequestMapping("gologin")
 	public String gologin(HttpSession httpSession,String userName,String password,Model model) {
 		
-		Teacher user=tercherService.login(userName, password);
+		User user=userService.login(userName, password);
     	if("admin".equals(userName)&&"123456".equals(password)){
     		User admin=new User();  
     		admin.setUsername("admin");

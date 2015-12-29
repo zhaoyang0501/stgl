@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 @Table(name = "t_dept")
 public class Dept {
@@ -27,6 +29,7 @@ public class Dept {
 	private String remark2;
 	private String remark3;
 	private String remark4;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
 	private Date createDate;
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Club club;
